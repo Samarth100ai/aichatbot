@@ -1,0 +1,27 @@
+!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Resume Parser</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <h1>Automated Resume Parser</h1>
+
+    <form method="post" enctype="multipart/form-data">
+      <label>Upload PDF:</label>
+      <input type="file" name="resume" accept="application/pdf" required>
+      <button type="submit">Upload & Parse</button>
+    </form>
+
+    <h2>Recent candidates</h2>
+    <table border="1">
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Skills</th><th>Education</th></tr>
+      {% for c in candidates %}
+      <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.name or '-' }}</td>
+        <td>{{ c.email or '-' }}</td>
+        <td>{{ c.phone or '-' }}</td>
+        <td>{{ c.skills or '-' }}</td>
+  
